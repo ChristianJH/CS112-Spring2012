@@ -19,8 +19,26 @@ pygame.init()
 screen = pygame.display.set_mode((800, 388))
 pygame.display.set_caption("Olympic Rings   [press ESC to quit]")
 
+width = 800
+height = 388
+rad = 120
+scale = .9
+horizDist = 12
+vertDist = 10
+vertRow2 = -10
+
 ## Draw
 screen.fill(WHITE)
+
+
+pygame.draw.ellipse(screen, BLUE, (horizDist,vertDist,width/3*scale,height*2/3*scale),THICKNESS)
+pygame.draw.ellipse(screen, BLACK, (horizDist+width/3,vertDist,width/3*scale,height*2/3*scale),THICKNESS)
+pygame.draw.ellipse(screen, RED, (horizDist+width*2/3,vertDist,width/3*scale,height*2/3*scale),THICKNESS)
+
+pygame.draw.ellipse(screen, YELLOW, (horizDist+width/6,vertDist+vertRow2+height/3,width/3*scale,height*2/3*scale),THICKNESS)
+pygame.draw.ellipse(screen, GREEN, (horizDist+width/2,vertDist+vertRow2+height/3,width/3*scale,height*2/3*scale),THICKNESS)
+
+
 
 #################################
 ##  DRAW OLYPIC RINGS HERE
