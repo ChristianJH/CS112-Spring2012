@@ -11,6 +11,12 @@ import math
 
 # def distance(a, b):
 
+def distance(a, b):
+    x1,y1=a
+    x2,y2=b
+    width = x2-x1
+    height = y2-y1
+    return math.sqrt(width**2+height**2)
 
 # ADVANCED
 # Normalizing Vectors
