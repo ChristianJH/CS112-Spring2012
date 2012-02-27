@@ -8,7 +8,7 @@
 #   hello, paul
 #   >>> greeter(3)
 #   hello, 3
-#   >>> greeter("WORLD")
+#   >>> greeter("/Volumes/OVERTURE Z/Lines/day9.pyWORLD")
 #   hello, world
 
 # def greeter(name):
