@@ -10,7 +10,7 @@ the following functions and test to make sure they
 work with `python run_tests.py`
 
 Make sure to use the documentation 
-http://www.pygame.org/docs/ref/rect.html
+Http://www.pygame.org/docs/ref/rect.html
 
 
 Terms:
@@ -33,8 +33,10 @@ from pygame import Rect
 #      returns:  True or False
 
 def poly_in_rect(poly, rect):
-    "check if polygon is within rectangle"
-
+    inside = 1
+    for pt in poly:
+        inside *= rect.collidepoint(pt)
+    return inside
 
 
 # 2. surround_poly
@@ -45,6 +47,15 @@ def poly_in_rect(poly, rect):
 #      returns:  pygame.Rect
 
 def surround_poly(poly):
-    "create a rectangle which surounds a polygon"
-
-
+    xmin, ymin = xmax, ymax = poly[0]
+    for pt in poly:
+        x,y = pt
+        if x <= xmin:
+            xmin = x
+        if x >= xmax:
+            xmax = x
+        if y <= ymin:
+            ymin = y
+        if y >= ymax:
+            ymax = y
+    return Rect(xmin,ymin,(xmax-xmin+1),(ymax-ymin+1))
