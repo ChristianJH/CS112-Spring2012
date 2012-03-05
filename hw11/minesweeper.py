@@ -8,6 +8,9 @@ from pygame.locals import *
 ## Settings
 
 FPS = 30
+pygame.font.init()
+
+
 
 #Colors
 C_BORDER = 0,0,0
@@ -24,6 +27,7 @@ C_6 = 255,0,255
 C_7 = 255,255,255
 C_8 = 0,0,0
 C_FLAGGED = C_2
+
 
 def clear_square(world,x,y):
     if not world[x][y]["cleared"]:
@@ -43,10 +47,61 @@ def bomb_at(world,x,y):
     else:
         return world[x][y]["bomb"]
 
+def draw_1(font, screen, rect):
+    words = font.render("1", True, C_1)
+    loc = words.get_rect()
+    loc.center = rect.center
+    screen.blit(words, loc)#X and Y are where you want the  words to appear.
+
+def draw_2(font, screen, rect):
+    words = font.render("2", True, C_2)
+    loc = words.get_rect()
+    loc.center = rect.center
+    screen.blit(words, loc)#X and Y are where you want the  words to appear.
+
+def draw_3(font, screen, rect):
+    words = font.render("3", True, C_3)
+    loc = words.get_rect()
+    loc.center = rect.center
+    screen.blit(words, loc)#X and Y are where you want the  words to appear.
+
+def draw_4(font, screen, rect):
+    words = font.render("4", True, C_4)
+    loc = words.get_rect()
+    loc.center = rect.center
+    screen.blit(words, loc)#X and Y are where you want the  words to appear.
+
+def draw_5(font, screen, rect):
+    words = font.render("5", True, C_5)
+    loc = words.get_rect()
+    loc.center = rect.center
+    screen.blit(words, loc)#X and Y are where you want the  words to appear.
+
+def draw_6(font, screen, rect):
+    words = font.render("6", True, C_6)
+    loc = words.get_rect()
+    loc.center = rect.center
+    screen.blit(words, loc)#X and Y are where you want the  words to appear.
+
+def draw_7(font, screen, rect):
+    words = font.render("7", True, C_7)
+    loc = words.get_rect()
+    loc.center = rect.center
+    screen.blit(words, loc)#X and Y are where you want the  words to appear.
+
+def draw_8(font, screen, rect):
+    words = font.render("8", True, C_8)
+    loc = words.get_rect()
+    loc.center = rect.center
+    screen.blit(words, loc)#X and Y are where you want the  words to appear.
+
+
+
 ## Game
 def game(tile, width, height, num_bombs):
     # init
     screen = pygame.display.set_mode((width*tile, height*tile))
+    font = pygame.font.Font(None, 40)
 
     # store all the game data
     world = []
@@ -114,6 +169,7 @@ def game(tile, width, height, num_bombs):
     done = False
     progress = width * height
     winAbility = True
+    won = False
     while not done:
         # input
         for event in pygame.event.get():
@@ -136,7 +192,7 @@ def game(tile, width, height, num_bombs):
                 action_flag_square = True
 
         # update
-        if winAbility == True:
+        if winAbility == True and won == False:
             if action_clear_square:
                 x,y = pygame.mouse.get_pos()
                 x /= tile
@@ -168,7 +224,8 @@ def game(tile, width, height, num_bombs):
                 print world[x][y]["hint"]
 
             if progress == num_bombs and winAbility == True:
-                print "WIN"
+                won = True
+
 
         # display
         screen.fill(C_BORDER)
@@ -194,14 +251,34 @@ def game(tile, width, height, num_bombs):
 
                 # draw cleared graphics
                 if world[x][y]["cleared"]:
+                    if world[x][y]["hint"]==1:
+                        draw_1(font, screen, rect)
+                    if world[x][y]["hint"]==2:
+                        draw_2(font, screen, rect)
+                    if world[x][y]["hint"]==3:
+                        draw_3(font, screen, rect)
+                    if world[x][y]["hint"]==4:
+                        draw_4(font, screen, rect)
+                    if world[x][y]["hint"]==5:
+                        draw_5(font, screen, rect)
+                    if world[x][y]["hint"]==6:
+                        draw_6(font, screen, rect)
+                    if world[x][y]["hint"]==7:
+                        draw_7(font, screen, rect)
+                    if world[x][y]["hint"]==8:
+                        draw_8(font, screen, rect) 
                     if world[x][y]["bomb"]:
                         pygame.draw.ellipse(screen, C_BOMB, rect.inflate(-tile/2, -tile/2))
                 if winAbility == False:
                     if world[x][y]["bomb"]:
                         pygame.draw.ellipse(screen, C_BOMB, rect.inflate(-tile/2, -tile/2))
-#                        pygame.font.init()
-#                        numberFont = pygame.font.SysFont(Arial, 10, bold=False, italic=False)
-#                        numberFont.render("H",True,C_8)
+                        draw_2(font, screen, rect)
+#                if won == True:
+#                    for x in range(width):
+#                        for y in range(height):
+#                            if world[x][y]["bomb"]:
+#                                bg_color = C_FLAGGED
+
 
 
         # refresh
