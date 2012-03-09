@@ -22,6 +22,45 @@
 #     28.274333882308138
 #     
 
+import math
+
+class Shape(object):
+    def __init__(self):
+        pass
+
+    def area(self):
+        pass
+
+    def perimeter(self):
+        pass
+
+class Rect(Shape):
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width*self.height
+
+    def perimeter(self):
+        return self.width*2+self.height*2
+
+class Square(Rect):
+    def __init__(self, side):
+        Rect.__init__(self, side, side)
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return math.pi*self.radius**2
+
+    def perimeter(self):
+        return self.radius*2*math.pi
+
+
+
 # Advanced Section
 # ---------------------------------------------------------
 # Add one more shape type: a polygon.  Polygons are created
