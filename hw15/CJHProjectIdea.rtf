@@ -1,0 +1,43 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf360
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww9000\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f0\fs24 \cf0 Ok, so here are my 3 game ideas. I hope this can count as early, because I might need the extra point.\
+\
+1. Photo-based Side-scrolling combat involved adventure.\
+\
+Basically a copy of the controls from the battle mode in "Zelda II: The Adventure of Link", but the visuals would be created from photos for the main character's positions and for the side scrolling environment. I will need to use a green screen to make the character position photos, but I can build the functionality of the game before I take any character photos. And the visuals are secondary to the functionality, which I do want to accurately duplicate from Zelda II. There is slash sword (in my case, a foam sword), duck and use shield (with either left or right), move left or right (which if held, accelerates the movement to a certain point and when let go, decelerates until stopped), and jump, which if held down longer, makes the jump higher before coming back down. There is also an up-slash and a down-slash. The enemies can be simple, like one that bounces diagonally on the top and bottom of the game world, even if that doesn't make sense, one that runs and stab forwards in one direction, and one that tries to jump on the character.\
+\
+http://youtu.be/wxiCgBt-dPo?t=2m49s a minute of this is all you need to understand what Zelda II is.\
+\
+Hurdles with this one are player controlled height jumping, accelerated moving and stopping, setting which part of the player sprite is lethal to the enemy or blocks attacks and stuff like that in different positions, then implementing the positions switching them with the images, then the enemy rules, but they don't need to be photos, nor does any of it for that matter, but it would be cooler if they were photos.\
+\
+2. Cannon Monster: Break the Target!\
+\
+A cannon monster tries to play target practice. \
+\
+Here is the cannon monster. http://www.youtube.com/watch?v=GE5VpOKBWhY \
+\
+Here is "Break the targets", from Super Smash Brothers. http://www.youtube.com/watch?v=aaClnNwlheA \
+\
+The player will control the Cannon Monster in a side scrolling 2D environment. The player has control of the direction that the big wheel moves or doesn't move, the tilt of the cannon monster's actual head, and to a lesser extent, the direction the cannon monster wants it head to point from the big wheel. However, because its head and wheel have so much inertia, moving its head to an upright position could be a challenge that involves some movement of the big wheel, coordinated with the other three controls. Being a cannon monster is difficult work. \
+\
+This will need to implement some sort of rules that govern the inability for the cannon monster to lift its head using it's "sheer will" muscle/control, if its head is near the ground. I don't fully know how that would work, but I have means of figuring it out.\
+\
+I'll also have to make the cannon monster out of polygons, but that could be pretty easy.\
+\
+then of course there is firing the cannon ball, and target-destroy, the cannon ball can fall in a parabola.\
+\
+\
+3. Space Battle: The shooting Triangle guy vs a massive collection of circles!\
+\
+Imagine a really heavy circle in outer space that is also sentient. Imagine that this circle had enough gravity to attract hundreds of other circles which it then used as anti-laser Armor. Triangle guy wants to sheet the master circle, but it will need to destroy its armor first, circle by circle. This one is "Top Down?" (???OuterSpace???) and I want the game-world to loop, so the player can think that they are running away but simple be confronted again with the same monster.\
+\
+Some hurdles with this would be the physics of the circles, as well as avoiding lag. Another is looping the game world, and making sure the loop can't be abused to shoot the circle mass from far away. I think laser shots should disappear after a given distance.\
+\
+\
+\
+\
+}
