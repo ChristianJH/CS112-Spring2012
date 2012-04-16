@@ -21,6 +21,9 @@ As you add the methods in this homework, run `test_quad.py` to run the normal ba
 Getting the Points (get_points)
 --------------------------------
 
+
+
+
 Add a method `get_points` to QuadTreeNode.  This method will fetch a list of every point stored in
 a QuadTreeNode and it's children.  Since each 
 
@@ -150,13 +153,30 @@ class QuadTreeNode(object):
         else:
             self.se.add_point(point)
 
-    # def get_points(self):
-    
+    def get_points(self):
+        if self.is_split is True:
+            list = []
+            list += self.nw.get_points()
+            list += self.ne.get_points()
+            list += self.sw.get_points()
+            list += self.se.get_points()
+            return list
+        elif self.data is not None:
+            return [self.data]
 
-    # def get_rects(node, rects=None):
-    #   if rects is None:
-    #       rects = []
+        else:
+            return []
 
+    def get_rects(node, rects=[]):
+        rects=[]
+        rects += [pygame.Rect(node.rect)]
+        if node.is_split is True:
+            rects += node.nw.get_rects()    
+            rects += node.ne.get_rects()           
+            rects += node.sw.get_rects()
+            rects += node.se.get_rects()
+        return rects
 
     # Advanced
-    # def collidepoint(self, point):
+    #def collidepoint(self, point):
+        #pass
