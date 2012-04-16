@@ -153,6 +153,8 @@ class QuadTreeNode(object):
         else:
             self.se.add_point(point)
 
+#I worked with David N
+
     def get_points(self):
         if self.is_split is True:
             list = []
